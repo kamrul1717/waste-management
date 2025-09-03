@@ -1,14 +1,19 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UserConfigController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('home-page');
 });
 
-Route::middleware(['auth','disable-back','password-changed'])->group(function () {
+Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [HomeController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
+
+    Route::post('/toggle-dark-mode', [UserConfigController::class, 'toggleDarkMode']);
+    Route::post('/fullScreen-mode', [UserConfigController::class, 'fullScreenMode']);
 });
 
 Route::middleware('auth')->group(function () {

@@ -7,11 +7,13 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
+        "brian2694/laravel-toastr": "*",
         "laravel/framework": "^11.31",
         "laravel/tinker": "^2.9",
         "spatie/laravel-permission": "^6.21"
     },
     "require-dev": {
+        "barryvdh/laravel-debugbar": "*",
         "fakerphp/faker": "^1.23",
         "laravel/breeze": "^2.3",
         "laravel/pail": "^1.1",
