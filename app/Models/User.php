@@ -46,4 +46,17 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public static function getUserNameById($id){
+        $user = self::find($id);
+        if($user){
+            return $user->username;
+        }
+        return "";
+    }
+    public function employee()
+    {
+        return $this->belongsTo(Employee::class,'employee_id');
+    }
+
 }
