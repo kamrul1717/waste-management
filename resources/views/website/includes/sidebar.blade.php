@@ -129,14 +129,14 @@
                        data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarLayouts">
                         <i class="ri-layout-3-line"></i> <span data-key="t-layouts">Additional</span>
                     </a>
-                    <div class="collapse menu-dropdown {{ Request::is('lookup/admin')?'show':'' }}"
+                    <div class="collapse menu-dropdown {{ Request::is('wards')?'show':'' }}"
                          id="sidebarLayouts">
                         <ul class="nav nav-sm flex-column">
                             @canany(['000242', '000243'])
                                 <li class="nav-item">
-                                    <a href="{{url('lookup/admin')}}"
-                                       class="nav-link {{ Request::is('lookup/admin')?'active':'' }}"
-                                       data-key="t-horizontal">Lookup</a>
+                                    <a href="{{url('wards')}}"
+                                       class="nav-link {{ Request::is('wards')?'active':'' }}"
+                                       data-key="t-horizontal">Wards</a>
                                 </li>
                             @endcanany
                             @canany(['000246','000247'])

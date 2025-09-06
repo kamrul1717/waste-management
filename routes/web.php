@@ -7,6 +7,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserConfigController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\WardController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -32,7 +33,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('roles/assign-permission', [RoleController::class, 'assignPermission']);
     Route::get('roles/get-permissions-list/', [RoleController::class, 'getPermissionsList']);
-    Route::get('users/get-users-for-permission', [User::class, 'getUsersForPermission']);
+    Route::get('users/get-users-for-permission', [UserController::class, 'getUsersForPermission']);
     Route::post('roles/assign-permission-to-role/{id}', [RoleController::class, 'assignPermissionToRole']);
     Route::post('roles/revoke-permission-from-role/{id}', [RoleController::class, 'revokePermissionFromRole']);
     Route::post('roles/assign-batch-permission-to-role', [RoleController::class, 'assignBatchPermissions']);
@@ -84,6 +85,12 @@ Route::middleware(['auth'])->group(function () {
     Route::get('users/change-password', [UserController::class, 'changePassword'])->name('change.password');
     Route::post('users/change-password/store', [UserController::class, 'storeChangePassword'])->name('update.password');
 //    -------------------------------Manage Users end-------------------------------------
+
+    Route::get('wards', [WardController::class, 'index']);
+    Route::post('wards/store', [WardController::class, 'store']);
+    Route::get('wards/edit/{id}', [WardController::class, 'edit']);
+    Route::post('wards/update/{id}', [WardController::class, 'update']);
+    Route::post('wards/delete/{id}', [WardController::class, 'destroy']);
 
     Route::get('search/employeeByNameOrID', [EmployeeController::class, 'searchEmployeeByNameOrID']);
     Route::get('/getEmployeeByNameOrID/empId/{empId}', [EmployeeController::class, 'getEmployeeByNameOrID']);
