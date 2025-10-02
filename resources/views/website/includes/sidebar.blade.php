@@ -134,6 +134,13 @@
                         <ul class="nav nav-sm flex-column">
                             @canany(['000242', '000243'])
                                 <li class="nav-item">
+                                    <a href="{{url('city-corporations')}}"
+                                       class="nav-link {{ Request::is('city-corporations')?'active':'' }}"
+                                       data-key="t-horizontal">City Corporations</a>
+                                </li>
+                            @endcanany
+                            @canany(['000242', '000243'])
+                                <li class="nav-item">
                                     <a href="{{url('wards')}}"
                                        class="nav-link {{ Request::is('wards')?'active':'' }}"
                                        data-key="t-horizontal">Wards</a>
@@ -150,6 +157,9 @@
                     </div>
                 </li>
                 @endcanany
+
+
+                
 {{--                @endif--}}
 
 

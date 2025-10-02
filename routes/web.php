@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CityCorporationController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PermissionController;
@@ -91,6 +92,13 @@ Route::middleware(['auth'])->group(function () {
     Route::get('wards/edit/{id}', [WardController::class, 'edit']);
     Route::post('wards/update/{id}', [WardController::class, 'update']);
     Route::post('wards/delete/{id}', [WardController::class, 'destroy']);
+
+    Route::get('city-corporations', [CityCorporationController::class, 'index']);
+    Route::post('city-corporations/store', [CityCorporationController::class, 'store']);
+    Route::get('city-corporations/edit/{id}', [CityCorporationController::class, 'edit']);
+    Route::post('city-corporations/update/{id}', [CityCorporationController::class, 'update']);
+    Route::post('city-corporations/delete/{id}', [CityCorporationController::class, 'destroy']);
+
 
     Route::get('search/employeeByNameOrID', [EmployeeController::class, 'searchEmployeeByNameOrID']);
     Route::get('/getEmployeeByNameOrID/empId/{empId}', [EmployeeController::class, 'getEmployeeByNameOrID']);
